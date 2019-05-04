@@ -6,3 +6,6 @@ before_install:
 script:
   - source $HOME/.cargo/env
   - rebar3 eunit
+
+otp_release:
+  - 21.3
