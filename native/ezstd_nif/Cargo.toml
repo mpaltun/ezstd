@@ -1,0 +1,15 @@
+[package]
+name = "ezstd"
+version = "0.1.0"
+authors = ["Mustafa Paltun <mpaltun@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "ezstd"
+path = "src/lib.rs"
+crate-type = ["dylib"]
+
+[dependencies]
+rustler = { git = "https://github.com/mpaltun/rustler", branch = "decode_iolist" }
+zstd = "0.4"
+lazy_static = "1.3"

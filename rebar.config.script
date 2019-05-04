@@ -1,0 +1,9 @@
+LibName = case os:type() of
+  {win32,_} -> "ezstd.dll";
+  _ -> "ezstd.so"
+end,
+
+filelib:ensure_dir("priv/"),
+file:copy("native/ezstd_nif/target/release/" ++ LibName, "priv/" ++ LibName),
+
+CONFIG.
