@@ -1,7 +1,9 @@
-{SourceLib, TargetLib} = case os:type() of
-  {win32,_} -> {"ezstd.dll", "ezstd.dll"};
-  _ -> {"libezstd.so", "ezstd.so"}
+{Cargo, SourceLib, TargetLib} = case os:type() of
+  {win32,_} -> {"cargo.exe", "ezstd.dll", "ezstd.dll"};
+  _ -> {"cargo", "libezstd.so", "ezstd.so"}
 end,
+
+os:cmd(Cargo ++ " build --release --manifest-path native/ezstd_nif/Cargo.toml"),
 
 filelib:ensure_dir("priv/"),
 file:copy("native/ezstd_nif/target/release/" ++ SourceLib, "priv/" ++ TargetLib),
