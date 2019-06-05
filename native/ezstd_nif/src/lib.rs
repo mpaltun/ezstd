@@ -22,7 +22,7 @@ rustler_export_nifs! {
 }
 
 fn compress<'a>(env: Env<'a>, args: &[Term<'a>]) -> NifResult<Term<'a>> {
-    let input: Binary = args[0].decode()?;
+    let input: Binary = args[0].decode_as_binary()?;
     let level: i32 = args[1].decode()?;
 
     if input.is_empty() {
@@ -44,7 +44,7 @@ fn compress<'a>(env: Env<'a>, args: &[Term<'a>]) -> NifResult<Term<'a>> {
 }
 
 fn decompress<'a>(env: Env<'a>, args: &[Term<'a>]) -> NifResult<Term<'a>> {
-    let compressed: Binary = args[0].decode()?;
+    let compressed: Binary = args[0].decode_as_binary()?;
 
     if compressed.is_empty() {
         let empty_bin = OwnedBinary::new(0).unwrap();
