@@ -10,6 +10,6 @@ path = "src/lib.rs"
 crate-type = ["dylib"]
 
 [dependencies]
-rustler = { git = "https://github.com/mpaltun/rustler", branch = "decode_iolist" }
-zstd = "0.4"
-lazy_static = "1.3"
+rustler = "0.21.0"
+zstd = "0.4.28"
+lazy_static = "1.4.0"
