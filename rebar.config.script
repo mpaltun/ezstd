@@ -1,5 +1,6 @@
 {Cargo, SourceLib, TargetLib} = case os:type() of
-  {win32,_} -> {"cargo.exe", "ezstd.dll", "ezstd.dll"};
+  {win32, _} -> {"cargo.exe", "ezstd.dll", "ezstd.dll"};
+  {unix, darwin} -> {"RUSTFLAGS='-C link-arg=-undefined -C link-arg=dynamic_lookup' cargo", "libezstd.dylib", "ezstd.so"};
   _ -> {"cargo", "libezstd.so", "ezstd.so"}
 end,
 

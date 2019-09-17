@@ -9,3 +9,7 @@ script:
 
 otp_release:
   - 21.3
+
+os:
+  - linux
+  - osx
